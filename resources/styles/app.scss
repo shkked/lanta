@@ -1,0 +1,241 @@
+@use "./settings";
+@use "@mdi/font/css/materialdesignicons.css";
+@use "handsontable/dist/handsontable.full.min.css";
+@use "vuetify";
+
+@font-face {
+	font-family: "Wix Madefor Display";
+	src: url("/public/fonts/Wix_Madefor_Display/WixMadeforDisplay-VariableFont_wght.ttf");
+}
+
+* {
+	font-family: "Wix Madefor Display", sans-serif !important;
+}
+
+.white-substrate {
+	@extend .bg-white;
+	@extend .elevation-3;
+	@extend .rounded-lg;
+}
+// .border__input-color{
+// 	border-color: rgba(171, 171, 171) !important;
+// }
+.custom-loader__input {
+	.v-skeleton-loader__bone {
+		margin-left: 0px !important;
+		margin-right: 0px !important;
+		border-radius: 10px !important;
+		height: 40px !important;
+	}
+}
+// Styles for elements in v-skeleton-loader in form-excel
+.form-excel {
+	.v-skeleton-loader .v-skeleton-loader__bone {
+		margin: 0 16px;
+	}
+}
+//Styles for elements in Handsontable cells
+
+.table_input_file::file-selector-button {
+	text-indent: -9999px;
+	border: none;
+	background-color: inherit;
+}
+.table_input_file {
+	border-radius: 4px;
+	display: inline-block;
+	border: 1px solid #b0b0b0;
+	padding: 6px 0;
+	max-width: 200px;
+}
+.table_input_file:hover {
+	border: 1px solid #000000;
+}
+.table_input_container_loaded,
+.table_input_container_not_loaded {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+.table_input_container_loaded::before,
+.table_input_container_not_loaded::before {
+	display: inline-block;
+	content: "\f03e2";
+	font: normal normal normal 22px / 1 "Material Design Icons";
+	color: #2e7d32;
+}
+.table_input_container_not_loaded::before {
+	color: #b0b0b0;
+}
+.table_input_container {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.table_outlined_button {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	color: rgb(24, 103, 192);
+	border: 1px solid rgb(24, 103, 192);
+	border-radius: 4px;
+	padding: 6px 12px;
+	text-transform: uppercase;
+}
+.table_outlined_button:hover {
+	background-color: rgb(24, 103, 192, 0.1);
+}
+.table_send_button,
+.table_primary_button,
+.table_upload_button,
+.table_download_button {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	background-color: rgb(24, 103, 192);
+	color: white;
+	border-radius: 4px;
+	padding: 6px 12px;
+	text-transform: uppercase;
+}
+.table_send_button:hover,
+.table_primary_button:hover,
+.table_upload_button:hover,
+.table_download_button:hover {
+	opacity: 0.9;
+}
+.table_primary_button:disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
+.table_primary_button::before {
+	display: inline-block;
+	font: normal normal normal 18px / 1 "Material Design Icons";
+}
+.table_send_button::before {
+	display: inline-block;
+	content: "\F1162";
+	font: normal normal normal 18px / 1 "Material Design Icons";
+}
+
+.table_upload_button::before {
+	display: inline-block;
+	content: "\F011D";
+	font: normal normal normal 18px / 1 "Material Design Icons";
+}
+.table_download_button::before {
+	display: inline-block;
+	content: "\F0120";
+	font: normal normal normal 18px / 1 "Material Design Icons";
+}
+.table_send_button:disabled,
+.table_upload_button:disabled,
+.table_download_button:disabled {
+	opacity: 0.5;
+}
+.table_success_button::before {
+	color: #2e7d32;
+	content: "\F1A9A";
+	font: normal normal normal 25px / 1 "Material Design Icons";
+}
+
+.table_error_button::before {
+	color: #c62828;
+	content: "\F1AA0";
+	font: normal normal normal 25px / 1 "Material Design Icons";
+}
+
+//Styles for data picker
+.picker_input {
+	height: 40px !important;
+	border: 1px solid #ababab !important;
+}
+.picker_input:hover,
+.picker_input:focus,
+.picker_input:active {
+	border: 1px solid #212121 !important;
+}
+.picker_input:focus,
+.picker_input:active {
+	border: 2px solid #1867c0 !important;
+}
+.picker_menu .dp__overlay_cell_active,
+.picker_menu .dp__action_select {
+	background-color: #1867c0 !important;
+}
+.picker_menu .dp__action_row button {
+	padding: 18px 12px !important;
+	text-transform: uppercase;
+}
+.bg-green-color {
+	@extend .bg-green;
+	@extend .text-black;
+	background-color: rgba(76, 175, 80, 0.3) !important;
+}
+.bg-red-color {
+	@extend .bg-red;
+	@extend .text-black;
+	background-color: rgba(244, 67, 54, 0.3) !important;
+}
+.bg-yellow-color {
+	@extend .bg-yellow;
+	@extend .text-black;
+	background-color: #ffe89d !important;
+}
+.no-data {
+	height: 54vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 20px;
+}
+.custom-editor {
+	background-color: #fff;
+	border-bottom: 1px solid #ccc;
+	border-left-width: 0;
+	border-right: 1px solid #ccc;
+	border-top-width: 0;
+	empty-cells: show;
+	height: 22px;
+	line-height: 21px;
+	outline: none;
+	outline-width: 0;
+	overflow: hidden;
+	padding: 0 4px;
+	vertical-align: top;
+	white-space: pre-wrap;
+}
+.chat-btn {
+	right: 20px;
+	bottom: 20px;
+}
+.rounded-10 {
+	border-radius: 10px;
+}
+
+.table_download_button.loading::before,
+.table_send_button.loading::before,
+.table_primary_button.loading::before {
+	content: "\F0772";
+	animation: spin 1s linear infinite;
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+.selectStatus {
+	background: #eee;
+	border: 1px solid #bbb;
+	border-radius: 2px;
+	color: #bbb;
+	float: right;
+	font-size: 9px;
+	line-height: 9px;
+	margin: 3px 1px 0 6px;
+	padding: 2px;
+	cursor: unset;
+}
